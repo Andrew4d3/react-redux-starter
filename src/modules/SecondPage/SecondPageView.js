@@ -8,7 +8,8 @@ import Picture from './components/Picture'
 class SecondPageView extends Component {
   static propTypes = {
     sampleActions: PropTypes.object.isRequired,
-    currentTime: PropTypes.object.isRequired
+    currentTime: PropTypes.object.isRequired,
+    asyncMessage: PropTypes.string.isRequired
   }
   componentDidMount() {
     setInterval(() => {
@@ -16,14 +17,25 @@ class SecondPageView extends Component {
       this.props.sampleActions.updateTime();
     }, 1000);
   }
+  testAsync = () => {
+    this.props.sampleActions.triggerRequest();
+  }
   render() {
-    const { currentTime } = this.props;
+    const { currentTime, isLoading } = this.props;
     return (
       <div className="App-intro">
         This is a second page!
         <Picture />
         <br />
         <strong>Time being refreshed by redux: {currentTime.toString()}</strong>
+        <br />
+          {
+            !isLoading
+            ? <button onClick={this.testAsync}>Test Async</button>
+            : <span>Loading ...</span>
+          }
+        <br />
+        <strong>{this.props.asyncMessage}</strong>
       </div>
     );
   }
@@ -34,7 +46,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  currentTime: state.sampleActions.currentTime
+  currentTime: state.sampleActions.currentTime,
+  asyncMessage: state.sampleActions.asyncMessage,
+  isLoading: state.sampleActions.isLoading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondPageView);

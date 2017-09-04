@@ -4,22 +4,38 @@ const asynchronousCall = () => new Promise((resolve) => {
   }, 1000);
 });
 
+
+export const constants = {
+  HELLO_WORLD: 'HELLO_WORLD',
+  UPDATE_TIME: 'UPDATE_TIME',
+  ASYNC_CALL: 'ASYNC_CALL'
+}
+
 export const actions = {
   sayHelloWorld: () => {
     alert("Dispatching Redux Action!");
     return {
-      type: 'HELLO_WORLD'
+      type: constants.HELLO_WORLD
     };
   },
   updateTime: () => {
     const now = new Date();
     return {
-      type: 'UPDATE_TIME',
+      type: constants.UPDATE_TIME,
       payload: { time: now }
     };
   },
   triggerRequest: () => {
-    // TODO
+    return {
+      type: constants.ASYNC_CALL,
+      payload: {
+        promise: asynchronousCall().then((response) => {
+          console.log("Response received!");
+          // Normalize data here
+          return Promise.resolve(response);
+        })
+      }
+    }
   }
 };
 
@@ -34,6 +50,22 @@ const ACTION_HANDLERS = {
     return {
       ...state,
       currentTime: action.payload.time
+    };
+  },
+  ASYNC_CALL_PENDING: (state, action) => ({
+    ...state,
+    isLoading: true
+  }),
+  ASYNC_CALL_FULFILLED: (state, action) => ({
+    ...state,
+    asyncMessage: action.payload.message,
+    isLoading: false
+  }),
+  ASYNC_CALL_REJECTED: (state, action) => {
+    console.log('Error Found')
+    return {
+      ...state,
+      isLoading: false
     };
   }
 }
