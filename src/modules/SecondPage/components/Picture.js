@@ -3,7 +3,7 @@ import landscape from '../../../assets/landscape.jpg'
 
 const Picture = () => (
   <div>
-    <img src={landscape} alt="nice" />
+    <img src={landscape} width="300px" alt="nice" />
     <h3>Have fun coding!</h3>
   </div>
 );

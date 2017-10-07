@@ -1,0 +1,6 @@
+[x] Include main menu
+[] Include less
+[] Include eslint
+[] Include cache
+[] Include tests
+[] Make readme
