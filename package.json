@@ -2,6 +2,9 @@
   "name": "react-redux-starter",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=6.11.4"
+  },
   "dependencies": {
     "autoprefixer": "7.1.1",
     "babel-core": "6.25.0",
@@ -53,12 +56,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^3.19.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "node-sass": "^4.5.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^15.6.2",
     "sass-loader": "^6.0.6"
   },
   "scripts": {

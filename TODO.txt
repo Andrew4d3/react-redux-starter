@@ -1,5 +1,5 @@
 [x] Include main menu
 [x] Include sass
-[] Include eslint
-[] Include tests
+[x] Include eslint
+[x] Include tests
 [] Make readme

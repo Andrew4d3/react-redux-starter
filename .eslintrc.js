@@ -20,6 +20,8 @@ module.exports = {
     ],
     "globals": {
         "process": true,
+        "describe": true,
+        "expect": true,
         "it": true
     },
     "rules": {
