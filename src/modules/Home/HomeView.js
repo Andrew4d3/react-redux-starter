@@ -20,7 +20,7 @@ class HomeView extends Component {
       </p>
     );
   }
-};
+}
 
 const mapDispatchToProps = (dispatch) => ({
   sampleActions: bindActionCreators(sampleActions, dispatch)

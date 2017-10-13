@@ -1,5 +1,5 @@
 import React from 'react';
-import landscape from '../../../assets/landscape.jpg'
+import landscape from '../../../assets/landscape.jpg';
 
 const Picture = () => (
   <div>
@@ -8,4 +8,4 @@ const Picture = () => (
   </div>
 );
 
-export default Picture
+export default Picture;

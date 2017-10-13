@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
-import MainLayout from './MainLayout'
-import HomeView from '../modules/Home/HomeView'
-import SecondPageView from '../modules/SecondPage/SecondPageView'
+import { BrowserRouter, Route } from 'react-router-dom';
+import MainLayout from './MainLayout';
+import HomeView from '../modules/Home/HomeView';
+import SecondPageView from '../modules/SecondPage/SecondPageView';
 import '../styles/App.scss';
 
 class Routes extends Component {

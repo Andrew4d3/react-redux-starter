@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import logo from '../assets/logo.svg';
 import MainMenu from '../common/MainMenu';
 
@@ -13,4 +14,8 @@ const MainLayout = (props) => (
   </div>
 );
 
-export default MainLayout
+MainLayout.propTypes = {
+  children: PropTypes.node
+};
+
+export default MainLayout;

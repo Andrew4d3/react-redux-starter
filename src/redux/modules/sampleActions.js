@@ -1,6 +1,6 @@
 const asynchronousCall = () => new Promise((resolve) => {
   setTimeout(function () {
-    resolve({ message: "Async call complete!"});
+    resolve({ message: 'Async call complete!'});
   }, 1000);
 });
 
@@ -9,11 +9,11 @@ export const constants = {
   HELLO_WORLD: 'HELLO_WORLD',
   UPDATE_TIME: 'UPDATE_TIME',
   ASYNC_CALL: 'ASYNC_CALL'
-}
+};
 
 export const actions = {
   sayHelloWorld: () => {
-    alert("Dispatching Redux Action!");
+    alert('Dispatching Redux Action!');
     return {
       type: constants.HELLO_WORLD
     };
@@ -30,20 +30,20 @@ export const actions = {
       type: constants.ASYNC_CALL,
       payload: {
         promise: asynchronousCall().then((response) => {
-          console.log("Response received!");
+          console.log('Response received!');
           // Normalize data here
           return Promise.resolve(response);
         })
       }
-    }
+    };
   }
 };
 
 const ACTION_HANDLERS = {
-  HELLO_WORLD: (state, action) => {
+  HELLO_WORLD: (state) => {
     return {
       ...state,
-      message: "Redux is fun!"
+      message: 'Redux is fun!'
     };
   },
   UPDATE_TIME: (state, action) => {
@@ -52,7 +52,7 @@ const ACTION_HANDLERS = {
       currentTime: action.payload.time
     };
   },
-  ASYNC_CALL_PENDING: (state, action) => ({
+  ASYNC_CALL_PENDING: (state) => ({
     ...state,
     isLoading: true
   }),
@@ -61,23 +61,23 @@ const ACTION_HANDLERS = {
     asyncMessage: action.payload.message,
     isLoading: false
   }),
-  ASYNC_CALL_REJECTED: (state, action) => {
-    console.log('Error Found')
+  ASYNC_CALL_REJECTED: (state) => {
+    console.log('Error Found');
     return {
       ...state,
       isLoading: false
     };
   }
-}
+};
 
 export const initialState = {
   currentTime: new Date(),
-  message: "",
-  asyncMessage: "",
-  isLoading: ""
-}
+  message: '',
+  asyncMessage: '',
+  isLoading: ''
+};
 
-export default function (state = initialState, action) {
-  const handler = ACTION_HANDLERS[action.type]
-  return handler ? handler(state, action) : state
-}
+export default (state = initialState, action) => {
+  const handler = ACTION_HANDLERS[action.type];
+  return handler ? handler(state, action) : state;
+};

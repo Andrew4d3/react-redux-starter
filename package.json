@@ -52,13 +52,20 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.1.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "jest": {
     "collectCoverageFrom": [

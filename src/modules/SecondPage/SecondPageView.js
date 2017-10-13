@@ -3,13 +3,14 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { actions as sampleActions } from '../../redux/modules/sampleActions';
-import Picture from './components/Picture'
+import Picture from './components/Picture';
 
 class SecondPageView extends Component {
   static propTypes = {
     sampleActions: PropTypes.object.isRequired,
     currentTime: PropTypes.object.isRequired,
-    asyncMessage: PropTypes.string.isRequired
+    asyncMessage: PropTypes.string.isRequired,
+    isLoading: PropTypes.boolean
   }
   componentDidMount() {
     setInterval(() => {
@@ -39,7 +40,7 @@ class SecondPageView extends Component {
       </div>
     );
   }
-};
+}
 
 const mapDispatchToProps = (dispatch) => ({
   sampleActions: bindActionCreators(sampleActions, dispatch)
