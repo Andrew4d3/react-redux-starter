@@ -7,9 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe('SecondPage Components', () => {
   it('renders Picture correctly', () => {
-    const picture = render(
-      <Picture />
-    );
+    const picture = render(<Picture />);
     expect(picture.text()).toContain('Have fun coding!');
   });
 });

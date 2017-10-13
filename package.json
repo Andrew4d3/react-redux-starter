@@ -64,6 +64,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "node-sass": "^4.5.3",
+    "pre-commit": "^1.2.2",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^15.6.2",
     "sass-loader": "^6.0.6"
@@ -111,6 +112,9 @@
       "react-app"
     ]
   },
+  "pre-commit": [
+    "lint"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   }
